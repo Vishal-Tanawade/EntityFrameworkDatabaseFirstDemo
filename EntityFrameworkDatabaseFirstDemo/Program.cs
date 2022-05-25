@@ -27,19 +27,25 @@ namespace EntityFrameworkDatabaseFirstDemo
             }
 
 
-            Console.WriteLine("Add new Emp");
-            ClsEmployee emp = new ClsEmployee()
-            {
-                FirstName = "Vishal",
-                LastName = "Tanawade",
-                Email = "beingvishalt@gmail.com",
-                CellNumber = "(660) 663-4518",
-                Password = "Vishalt@123"
-            };
+            //Console.WriteLine("Add new Emp");
+            //ClsEmployee emp = new ClsEmployee()
+            //{
+            //    FirstName = "Vishal",
+            //    LastName = "Tanawade",
+            //    Email = "beingvishalt@gmail.com",
+            //    CellNumber = "(660) 663-4518",
+            //    Password = "Vishalt@123"
+            //};
 
-            context.ClsEmployees.Add(emp);
+            //context.ClsEmployees.Add(emp);
+
+            ClsEmployee emp = context.ClsEmployees.FirstOrDefault(e => e.EmpID == 5);
+            emp.Email = "Vishal@gmail.com";
+
+            
+            
+            
             context.SaveChanges();
-
             Console.ReadLine();
         }
     }
