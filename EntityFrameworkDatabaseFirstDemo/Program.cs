@@ -13,6 +13,10 @@ namespace EntityFrameworkDatabaseFirstDemo
             GN22ADMDNF001Entities context = new GN22ADMDNF001Entities(); //create object of DbContext class
 
             // we use Ienumerable for collection simillarly IQuerable is for database 
+
+
+            //************Select***************
+
             IQueryable<ClsEmployee> employees = context.ClsEmployees;
 
             foreach(ClsEmployee employee in employees)
@@ -26,6 +30,7 @@ namespace EntityFrameworkDatabaseFirstDemo
                    
             }
 
+            //************Insert***************
 
             //Console.WriteLine("Add new Emp");
             //ClsEmployee emp = new ClsEmployee()
@@ -39,12 +44,17 @@ namespace EntityFrameworkDatabaseFirstDemo
 
             //context.ClsEmployees.Add(emp);
 
-            ClsEmployee emp = context.ClsEmployees.FirstOrDefault(e => e.EmpID == 5);
-            emp.Email = "Vishal@gmail.com";
 
-            
-            
-            
+            //************Update***************
+            //ClsEmployee emp = context.ClsEmployees.FirstOrDefault(e => e.EmpID == 5);
+            //emp.Email = "Vishal@gmail.com";
+
+
+
+            //************Delete***************
+            ClsEmployee emp = context.ClsEmployees.FirstOrDefault(e => e.EmpID == 5);
+            context.ClsEmployees.Remove(emp);
+
             context.SaveChanges();
             Console.ReadLine();
         }
