@@ -23,8 +23,24 @@ namespace EntityFrameworkDatabaseFirstDemo
                 Console.WriteLine("Email=" + employee.Email);
                 Console.WriteLine("Cell=" + employee.CellNumber);    Console.WriteLine("*****");
                 Console.WriteLine();
-                Console.ReadLine();    
+                   
             }
+
+
+            Console.WriteLine("Add new Emp");
+            ClsEmployee emp = new ClsEmployee()
+            {
+                FirstName = "Vishal",
+                LastName = "Tanawade",
+                Email = "beingvishalt@gmail.com",
+                CellNumber = "(660) 663-4518",
+                Password = "Vishalt@123"
+            };
+
+            context.ClsEmployees.Add(emp);
+            context.SaveChanges();
+
+            Console.ReadLine();
         }
     }
 }
